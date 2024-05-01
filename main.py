@@ -13,14 +13,26 @@ def count_words(text:str):
     
     return count
 
+def count_characters(text:str):
+    chars = text.lower()
+    char_count = {}
+    
+    for char in chars:
+        if char in char_count:
+            char_count[char] += 1
+        else:
+            char_count[char] = 1
+
+    return char_count
 
 def main():
     book = "./books/frankenstein.txt"
     text = read_text(book)
     word_count = count_words(text)
-
+    char_count = count_characters(text)
+    
     print(text)
     print(word_count)
-
+    print(char_count)
 
 main()
