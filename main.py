@@ -25,14 +25,34 @@ def count_characters(text:str):
 
     return char_count
 
+def sort_on(dict:dict):
+    return list(dict.values())[0]
+
+
+def report_characters(char_count:dict):
+    letters = "abcdefghijklmnopqrstuvwyz"
+
+    char_list = [{c:char_count[c]} for c in char_count if c in letters]
+    char_list.sort(reverse=True, key=sort_on)
+    
+    return char_list
+
+
 def main():
     book = "./books/frankenstein.txt"
     text = read_text(book)
     word_count = count_words(text)
     char_count = count_characters(text)
+    char_report = report_characters(char_count)
+
+    print(f"--- Begin report of {book} ---")
+    print(f"{word_count} words found in the document6")
+    print("\n")
     
-    print(text)
-    print(word_count)
-    print(char_count)
+    for char in char_report:
+        for (k, v) in char.items():
+            print(f"The '{k}' character was found {v} times")
+
+    print("--- End Report ---")
 
 main()
