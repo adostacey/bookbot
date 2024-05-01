@@ -7,11 +7,20 @@ def read_text(path_to_text:str):
 
     return full_text
 
+def count_words(text:str):
+    words = text.split()
+    count = len(words)
+    
+    return count
+
 
 def main():
     book = "./books/frankenstein.txt"
-    
-    print(read_text(book))
+    text = read_text(book)
+    word_count = count_words(text)
+
+    print(text)
+    print(word_count)
 
 
 main()
