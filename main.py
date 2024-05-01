@@ -30,9 +30,8 @@ def sort_on(dict:dict):
 
 
 def report_characters(char_count:dict):
-    letters = "abcdefghijklmnopqrstuvwyz"
 
-    char_list = [{c:char_count[c]} for c in char_count if c in letters]
+    char_list = [{c:char_count[c]} for c in char_count if c.isalpha()]
     char_list.sort(reverse=True, key=sort_on)
     
     return char_list
